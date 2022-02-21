@@ -1,6 +1,7 @@
 import { rectangleCollision } from "./lib/utils.js";
 import Level from "./lib/Level.js";
 import Player from "./lib/Player.js";
+import MiniMap from "./lib/MiniMap.js";
 
 // init canvas
 let canvas = document.getElementById('canvas');
@@ -12,6 +13,7 @@ let ctx = canvas.getContext('2d');
 // vars
 const level = new Level();
 const player = new Player(512/2, 512/2, "#8e44ad");
+const minimap = new MiniMap(level.bgTiles, 2, canvas.width - 74, 10, {x:player.x, y: player.y});
 
 // init level
 level.createTiles();
@@ -19,7 +21,7 @@ level.createTiles();
 // game loop
 function loop() {
 	requestAnimationFrame(loop);
-	
+
 	// update player
 	player.update();
 
@@ -62,6 +64,7 @@ function loop() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	level.draw(ctx);
 	player.draw(ctx);
+	minimap.draw(ctx, player);
 }
 
 loop();
