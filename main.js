@@ -19,7 +19,7 @@ level.createTiles();
 // game loop
 function loop() {
 	requestAnimationFrame(loop);
-
+	
 	// update player
 	player.update();
 
