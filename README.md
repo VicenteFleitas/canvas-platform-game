@@ -1,4 +1,4 @@
-# canvas platform game with camera made by Vicente Fleitas :)
+# canvas platform game made by Vicente Fleitas :)
 - install: npm http-server
 - enter the root forlder and run: http-server
 
